@@ -1,32 +1,32 @@
-# Prerequisites
-*.d
+*.ex4
+*.db
+*.dat
+*.chr
+config/
+history/
+logs/
+MQL4/Include/Arrays/
+MQL4/Include/Canvas/
+MQL4/Include/ChartObjects/
+MQL4/Include/Charts/
+MQL4/Include/Controls/
+MQL4/Include/Files/
+MQL4/Include/Indicators/
+MQL4/Include/Strings/
+MQL4/Include/Tools/
+MQL4/Indicators/Examples/
+MQL4/Scripts/
+MQL4/.vscode/
+profiles/
+statements/
+templates/
+tester/*.ini
+tester/caches
+tester/files
+tester/history
+tester/logs
+!*.set
+origin.txt
+*.sqbpro
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+/.idea/
