@@ -4,7 +4,7 @@
 // Strategy name - version
 extern string strategy_name = "Example";
 
-// Backtest's externals for optimization
+// Backtest externs for optimization
 extern bool fixed_sltp = false;
 extern int slippage = 3;
 extern int ATR_period = 14;
@@ -15,12 +15,11 @@ extern double profit_zone = 0.9;
 extern double profit_zone_reward = 0.2;
 extern double risk_per_trade = 1.0;
 
-// Strategies externals
-// DEMA
+// Action model exters
 extern int linreg_period = 60;
 extern int linreg_price = 0;
 
-// Waddah
+// Action model externs
 extern int ema_period = 200;
 extern int ema_price = 7;
 
