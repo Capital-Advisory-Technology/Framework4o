@@ -1,3 +1,9 @@
+/*
+   Custom header classes for trading session setting. 
+   Example provided in Example.mq4.
+   Remove object creation in case it is not needed.
+*/
+
 #property copyright "Framework 4"
 #property strict
 
