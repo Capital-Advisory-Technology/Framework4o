@@ -15,7 +15,7 @@ extern double profit_zone = 0.9;
 extern double profit_zone_reward = 0.2;
 extern double risk_per_trade = 1.0;
 
-// Action model exters
+// Action model externs
 extern int linreg_period = 60;
 extern int linreg_price = 0;
 
