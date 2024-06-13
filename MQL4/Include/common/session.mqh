@@ -1,14 +1,9 @@
-/*
-   Custom header classes for trading session setting. 
-   Example provided in Example.mq4.
-   Remove object creation in case it is not needed.
-*/
-
 #property copyright "Framework 4"
 #property strict
 
-#include <common/logger.mqh>
-#include <common/enums.mqh>
+#include <CAT/common/logger.mqh>
+#include <CAT/common/enums.mqh>
+#include <CAT/common/json.mqh>
 
 class Range {
    private:
@@ -148,7 +143,22 @@ class CustomSession {
          limitPeriod = period;
          positionLimit = limit;
       }
-         
+      
+      string toString() {
+         CJAVal json;
+         CJAVal* pointer = &json;
+         formatAndAddRangeObject(pointer, minuteRanges, "minute_ranges");
+         formatAndAddRangeObject(pointer, hourRanges, "hour_ranges");
+         formatAndAddRangeObject(pointer, dayRanges, "day_ranges");
+         formatAndAddRangeObject(pointer, monthRanges, "month_ranges");
+
+         CJAVal timeLimit;
+         timeLimit["period"] = limitPeriod;
+         timeLimit["limit"] = positionLimit;
+         json["time_limit"] = timeLimit;
+         return json.Serialize();
+      }
+
    private:
       Range* minuteRanges[];
       Range* hourRanges[];
@@ -194,4 +204,14 @@ class CustomSession {
             positionsInPeriod = 0;
         }
       }  
+
+      void formatAndAddRangeObject(CJAVal* jsonToAdd, Range* &rangeList[], string rangePeriod) {
+         for (int i = 0;i < ArraySize(rangeList); i++) {
+            CJAVal range;
+            range["from"] = rangeList[i].getBeginning();
+            range["to"] = rangeList[i].getEnd();
+            // range["order_type"] = rangeList[i].getAllowedOrder() + "";
+            jsonToAdd[rangePeriod].Add(range);
+         }
+      }
 };
