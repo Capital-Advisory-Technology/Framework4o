@@ -24,21 +24,6 @@ OrderAction DEMA_Simple(double cDEMA_period, int cDEMA_enum_price, double cDEMA_
   return OA_IGNORE;
 }
 
-//| lr_period - {35 - 145}  |  lr_price [0 - 6]                 
-OrderAction linear_reg_Simple(int lr_period, int lr_price) {
-  OrderAction signal = OA_IGNORE;
-
-  double lr_Buy = iCustom(NULL, 0, "linear-regression", lr_period, lr_price, 0, 1, 1);
-  double lr_Sell = iCustom(NULL, 0, "linear-regression", lr_period, lr_price, 0, 2, 1);
-  double lr_BuyPrev = iCustom(NULL, 0, "linear-regression", lr_period, lr_price, 0, 1, 2);
-  double lr_SellPrev = iCustom(NULL, 0, "linear-regression", lr_period, lr_price, 0, 2, 2);
-
-  if(LongCrossOverEmptyValue(lr_Buy, lr_SellPrev)) signal = OA_OPEN_LONG;
-  if(ShortCrossOverEmptyValue(lr_Sell,  lr_BuyPrev)) signal = OA_OPEN_SHORT;
-  return signal; 
-}
-
-  
 // Custom ENUMS 0-32
 enum enPrices {
   pr_close,       // Close 0
