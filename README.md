@@ -1,6 +1,6 @@
 # Framework4 Concept Repo
 
-OFramework4 is an open-source framework written in MQL4 for development of trading models in MetaTrader 4.
+Framework4o is an open-source software framework written in MQL4 for development of trading models in MetaTrader 4.
 Framework provides a structured approach to strategy development by having main modules pre-defined.
 
 ## Features
